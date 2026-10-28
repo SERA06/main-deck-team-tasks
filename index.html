@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=1024, initial-scale=1.0">
+  <title>Main Deck by Utharam — Personal Control Surface</title>
+
+  <!-- Google Font: Inter (Zero render-blocking with system-ui fallback) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- PWA Manifest & Meta -->
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" type="image/png" sizes="192x192" href="assets/icons/icon-192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="assets/icons/icon-512.png">
+  <meta name="theme-color" content="#0284c7">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="Main Deck">
+  <link rel="apple-touch-icon" href="assets/icons/icon-192.png">
+  
+  <!-- CSS Stylesheets -->
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/theme.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+</head>
+<body>
+  <!-- Mobile / Small Screen Notice Overlay -->
+  <div id="mobile-screen-notice" class="mobile-notice-overlay" style="display: none;">
+    <div class="mobile-notice-card card">
+      <div style="font-size: 2.25rem; margin-bottom: 8px;">🖥️</div>
+      <h2 style="font-size: 1.25rem;">Desktop Experience Intended</h2>
+      <p style="font-size: 0.875rem; color: var(--color-text-muted); margin: 8px 0 16px; line-height: 1.5;">
+        <strong>Main Deck</strong> is built specifically for corporate desktop and laptop browsers (ThinkPads, Macs, and PCs). For the intended control surface experience, please open this page on your desktop computer.
+      </p>
+      <button id="btn-dismiss-mobile-notice" class="btn btn-sm btn-secondary" style="width: 100%;">Continue Anyway</button>
+    </div>
+  </div>
+
+  <div class="app-root">
+    <!-- Left Sage Green Navigation Sidebar (Full Height) -->
+    <nav class="app-sidebar" aria-label="Main Navigation">
+      <div class="sidebar-brand-container">
+        <div class="sidebar-brand-avatar" title="Main Deck by Utharam">
+          <span>⚓</span>
+        </div>
+        <div class="sidebar-brand-text">
+          <div class="sidebar-brand-title">Main Deck</div>
+          <div class="sidebar-brand-sub">by Utharam</div>
+        </div>
+        <div class="sidebar-brand-badge">Local-First</div>
+      </div>
+
+      <div class="sidebar-nav-scroll">
+        <div class="nav-group">
+          <div class="nav-label">Workspace</div>
+          <a href="#home" class="nav-item active">
+            <span class="nav-icon">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+            </span>
+            <span>Home</span>
+          </a>
+          <a href="#projects" class="nav-item">
+            <span class="nav-icon">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/><path d="m9 14 2 2 4-4"/></svg>
+            </span>
+            <span>Projects</span>
+          </a>
+          <a href="#team" class="nav-item"><span class="nav-icon" aria-hidden="true">👥</span><span>Team Tasks</span>
+          </a>
+          <a href="#notes" class="nav-item">
+            <span class="nav-icon">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><line x1="10" y1="9" x2="8" y2="9"/></svg>
+            </span>
+            <span>Notes</span>
+          </a>
+          <a href="#stickies" class="nav-item">
+            <span class="nav-icon">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="17" x2="12" y2="22"/><path d="M5 17h14v-1.76a2 2 0 0 0-1.11-1.79l-1.78-.89A4 4 0 0 1 14 9V5a2 2 0 0 1 2-2h-8a2 2 0 0 1 2 2v4a4 4 0 0 1-2.11 3.56l-1.78.89A2 2 0 0 0 5 15.24Z"/></svg>
+            </span>
+            <span>Sticky Notes</span>
+          </a>
+          <a href="#sop" class="nav-item">
+            <span class="nav-icon">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"/><path d="M6 6h10"/><path d="M6 10h10"/></svg>
+            </span>
+            <span>SOP</span>
+          </a>
+        </div>
+
+        <div class="nav-group">
+          <div class="nav-label">Rest & Reset</div>
+          <a href="#stressbuster" class="nav-item">
+            <span class="nav-icon">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+            </span>
+            <span>Stress Buster</span>
+          </a>
+        </div>
+
+        <div class="nav-group">
+          <div class="nav-label">System</div>
+          <a href="#settings" class="nav-item">
+            <span class="nav-icon">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+            </span>
+            <span>Settings</span>
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Right Main Area: Banner, Header, Viewport (Content + Widgets), Footer -->
+    <div class="app-main-area">
+      <!-- Top Alert Banner (Backups, Notifications) -->
+      <aside id="app-banner" class="app-banner" role="alert">
+        <div class="banner-content"></div>
+        <div class="banner-actions">
+          <button class="btn btn-xs btn-primary banner-action-btn"></button>
+          <button class="btn btn-xs btn-ghost banner-dismiss-btn" title="Dismiss">✕</button>
+        </div>
+      </aside>
+
+      <!-- App Header -->
+      <header class="app-header">
+        <div class="header-left">
+          <h1 class="header-heading" id="header-page-title" aria-live="polite">Dashboard ⚓</h1>
+          <span class="header-subheading" id="header-page-sub">Personal Control Surface</span>
+        </div>
+
+        <!-- Center Pill Search Box (Ctrl+K) -->
+        <div class="header-center">
+          <button id="header-search-btn" class="header-search-pill" title="Search Main Deck (Ctrl+K)">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            <span class="search-placeholder">Search projects, tasks, notes...</span>
+            <kbd>Ctrl K</kbd>
+          </button>
+        </div>
+
+        <!-- Header Actions: Guide, Live Clock -->
+        <div class="header-actions">
+          <button id="header-readme-btn" class="btn btn-sm btn-header-action" title="Main Deck Guide & Philosophy">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 1-4 4v14a3 3 0 0 0 3-3h7z"/></svg>
+            <span>Guide</span>
+          </button>
+
+          <span id="header-clock" class="header-clock">--:--</span>
+        </div>
+      </header>
+
+      <!-- Main Two-Column Content Viewport -->
+      <main class="app-viewport">
+        <!-- Center Dynamic Viewport -->
+        <section id="app-content" class="app-content">
+          <!-- Injected via Router -->
+        </section>
+
+        <!-- Right Attention & Widgets Column -->
+        <aside id="app-widgets" class="app-widgets" aria-label="Widgets">
+          <!-- Injected via Widget Registry -->
+        </aside>
+      </main>
+
+      <!-- Bottom Human Encouragement & Stress Meter Dock -->
+      <footer class="app-footer">
+        <div id="footer-quote-text" class="footer-quote" style="flex: 1; max-width: 34%;">
+          💬 "One thing at a time."
+        </div>
+
+        <!-- Stress Meter Centered in Footer -->
+        <div id="footer-stress-meter" class="footer-stress-dock" style="flex: 1; display: flex; justify-content: center;">
+          <!-- Injected via stress.js -->
+        </div>
+
+        <!-- Attribution in Footer -->
+        <div class="footer-meta" style="flex: 1; display: flex; justify-content: flex-end; align-items: center; gap: 6px; font-size: 11px;">
+          <span>Crafted by</span>
+          <a href="https://utharam.in" target="_blank" rel="noopener" class="footer-attribution-link" title="Visit utharam.in">
+            Utharam
+          </a>
+          <span style="opacity: 0.4;">·</span>
+          <span style="opacity: 0.7;">Desktop only</span>
+        </div>
+      </footer>
+    </div>
+  </div>
+
+  <!-- Reusable Modal Window Container -->
+  <div id="modal-overlay" class="modal-overlay" role="dialog" aria-modal="true">
+    <div id="modal-window" class="modal-window"></div>
+  </div>
+
+  <!-- App Bootstrap -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>
