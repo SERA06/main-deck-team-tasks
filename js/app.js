@@ -225,7 +225,7 @@ function setupReadMeGuide() {
 
 async function openReadMeModal() {
   await showModal({
-    title: '⚓ Main Deck — Personal Control Surface Guide',
+    title: 'Main Deck — Personal Control Surface Guide',
     contentHtml: `
       <div style="font-size: var(--font-size-sm); line-height: 1.6; display: flex; flex-direction: column; gap: var(--space-3); max-height: 460px; overflow-y: auto; padding-right: 4px;">
         <div style="background-color: var(--color-primary-subtle); padding: var(--space-3); border-radius: var(--radius-md); border-left: 3px solid var(--color-primary); color: var(--color-text-main); font-weight: 500;">
@@ -305,7 +305,7 @@ async function handleRoute() {
   const routeModule = routes[routeKey] || homePage;
 
   const routeTitles = {
-    home: { title: 'Dashboard ⚓', sub: 'Personal Control Surface' },
+    home: { title: 'Dashboard', sub: 'Personal Control Surface' },
     projects: { title: 'Projects 📋', sub: 'Structured Goals & Milestones' },
     notes: { title: 'Notes 📝', sub: 'Instant Context & Ideas' },
     stickies: { title: 'Sticky Notes 📌', sub: 'Quick Dumps & Disappearing Timers' },
