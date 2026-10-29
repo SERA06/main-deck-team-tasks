@@ -114,6 +114,12 @@
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
 }
 
+.sidebar-brand-logo {
+  width: 40px;
+  height: 40px;
+  display: block;
+}
+
 .sidebar-brand-avatar:hover {
   transform: scale(1.05) rotate(5deg);
 }
