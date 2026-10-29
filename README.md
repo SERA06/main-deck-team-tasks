@@ -1,149 +1,67 @@
-# Main Deck — Personal Control Surface
+# Main Deck — Shared Team Tasks
 
-<p align="center">
-  <a href="https://utharam.github.io/Main-Deck/">
-    <img src="https://img.shields.io/badge/🚀_Live_App-https%3A%2F%2Futharam.github.io%2FMain--Deck%2F-0284c7?style=for-the-badge" alt="Live Demo">
-  </a>
-</p>
+An independent, modified version of Main Deck with a shared team task board.
 
-<p align="center">
-  <img src="https://img.shields.io/badge/Version-4.4.0-blueviolet.svg?style=flat-square" alt="Version 4.4.0">
-  <img src="https://img.shields.io/badge/PWA-Installable-blue.svg?style=flat-square" alt="PWA Ready">
-  <img src="https://img.shields.io/badge/Vanilla_JS-ES_Modules-yellow.svg?style=flat-square" alt="Vanilla JS">
-  <img src="https://img.shields.io/badge/Storage-IndexedDB_(Local--First)-green.svg?style=flat-square" alt="IndexedDB">
-  <img src="https://img.shields.io/badge/Platform-Desktop_Control_Surface-purple.svg?style=flat-square" alt="Desktop Control Surface">
-  <img src="https://img.shields.io/badge/License-MIT-brightgreen.svg?style=flat-square" alt="MIT License">
-</p>
+> This project is based on [Main Deck](https://github.com/Utharam/Main-Deck), originally created by Utharam. This version is maintained by SERA06 and is not the official upstream project.
 
-> **A minimal, local-first personal control surface designed for desktop professionals.**  
-> *Not a replacement for your email, spreadsheets, or ERP — just a clear converging point to organize, focus, and navigate your day's work and personal priorities.*
-
-🌐 **Live Web App & PWA**: [https://utharam.github.io/Main-Deck/](https://utharam.github.io/Main-Deck/)
+🌐 **Live app:** [https://sera06.github.io/main-deck-team-tasks/](https://sera06.github.io/main-deck-team-tasks/)
 
 ---
 
-## 🌟 Philosophy
+## What it does
 
-1. **Work deserves focus.** Group your priorities, execute step-by-step, and eliminate context switching.
-2. **Rest deserves permission.** Acknowledge your stress state without guilt, streak pressure, or algorithmic judgment.
-3. **Life deserves the remaining time.** Finish what matters today, close the screen, and go live outside the browser.
+Main Deck brings everyday work into one browser-based workspace. It combines personal planning tools with a team task board.
 
----
+### Personal workspace
 
-## 🎨 Daily "Quirk" Accent Themes
+- Organize projects, milestones, tasks, calls, emails, meetings, and reminders.
+- Capture quick thoughts on the Sticky Notes board.
+- Keep recurring procedures in the SOP section.
+- Use the dashboard and focus tools to plan the workday.
+- Install the app as a Progressive Web App (PWA), where supported.
 
-Main Deck stays minimal and distraction-free, but includes **7 subtle daily accent moods** that cycle automatically based on the day of the year (or can be pinned manually from Settings):
+### Shared Team Tasks
 
-| Day / Mood | Quirk Name | Accent Vibe |
-|------------|------------|-------------|
-| 🌊 | **Calm Tide** | Steady, focused ocean blue (Default) |
-| 🌫️ | **Morning Fog** | Cool slate-lavender start |
-| 🏺 | **Warm Clay** | Earthy terracotta warmth |
-| 🌿 | **Moss Garden** | Calm sage green breathing room |
-| 🏜️ | **Desert Wind** | Sandy amber clarity |
-| 🍇 | **Plum Dusk** | Introspective mauve depth |
-| ⚙️ | **Steel Dawn** | Sharp, industrial gunmetal |
+- Create an account and a team, or join a team with its invite code.
+- Create tasks and assign them to team members.
+- View shared team tasks after signing in.
+- Team task data is stored in the configured Supabase project. Members who join a team can currently update or delete that team's shared tasks.
 
----
+## Data and privacy
 
-## 📱 Progressive Web App (PWA) Support
+- Personal Main Deck data is stored in the browser on the device where it was entered. It is not automatically shared with teammates.
+- Team Tasks uses Supabase for sign-in and shared task storage. Its data is available to the authenticated members of the relevant team under the configured database policies.
+- Clearing browser data can remove locally stored personal information. Use the app's export option if you need a backup.
+- The Supabase publishable key is intended for browser use when Row Level Security (RLS) is correctly configured. **Never put a Supabase `service_role` or secret key in frontend code or a public repository.**
 
-Main Deck is a fully installable **PWA**:
-- **Standalone Chrome**: No address bar, no bookmark bar, no browser distractions.
-- **Offline Shell**: Fully cached via Service Worker for instant loading offline.
-- **Desktop First**: Designed specifically for high-productivity desktop screens (ThinkPads, Macs, PCs).
+## Deploy your own copy
 
----
+1. Create a Supabase project.
+2. In Supabase **SQL Editor**, run [`supabase/team_tasks.sql`](supabase/team_tasks.sql).
+3. Configure the app's Supabase project URL and publishable key in `js/supabase-config.js`.
+4. In Supabase **Authentication → URL Configuration**, set your deployed site URL and add it to the allowed redirect URLs.
+5. Publish the repository with GitHub Pages from the `main` branch and the repository root (`/(root)`).
+6. Open the deployed site, create an account, create a team, and share its invite code with intended teammates.
 
-## 🚀 Key Features
+Keep RLS enabled and review the policies in the SQL file before using the board with real team data. Do not share invite codes publicly.
 
-### 📋 Projects & Phased Progress
-- Convert vague mental goals into structured phases and milestones.
-- Keep context notes for instant resumption after days away.
+## Run locally
 
-### ⚡ Quick Pending Items & Trackers Strip
-- Real-time pending counters right on the Home dashboard for **Tasks**, **Calls**, **Emails**, **Meetings**, **Reminders**, and **Days Since**.
-- One-click jump with smooth scrolling and highlight pulse to target widgets.
-
-### 🕐 "Days Since" Factual Habit Tracker
-- Zero streak pressure, zero penalties — factual record of key personal activities (*Called Mom*, *Exercised*, *Read a book*).
-- Click 🔄 to reset to today.
-
-### 📌 Sticky Notes Board
-- **Quick Throw Brain Dumps**: Rapidly capture random thoughts, phone numbers, and unstructured ideas with zero friction (`Enter` or click to throw).
-- **Disappearing Timers**: Configurable auto-expiry from 1 to 7 days (or turned off for permanent stickies) with live time-remaining countdown badges.
-- **Priority Selector & Pastel Themes**: Tag notes with optional priority (Low, Medium, High, Urgent) and 6 cozy pastel shades (Lemon, Peach, Mint, Sky, Lilac, Rose).
-- **Freeform Canvas & Auto-Grid Rearrangement**: Freely drag, stack, and reposition stickies anywhere, or click **Rearrange to Grid** to snap everything into a clean layout.
-- **Quick 1-Click Delete**: Swift `✕` dismissal with smooth dissolve animation.
-
-### 📞 Work Attention Rail
-- Dedicated right-side widgets for Calls, Emails (with multi-ID mailto links), Meetings, and Snoozeable Reminders.
-
-### 📚 SOP (Standard Operating Procedures)
-- Card grid for recurring workflows with clean Reader Mode for deep focus.
-
-### 🧠 Stress Meter & 🎮 2-Minute Stress Buster
-- Footer slider (0–100) for personal state awareness.
-- 2-minute reset mini-games (*Swat Mosquito*, *Pop Balloons*, *Smash Distractions*, *Love Them*) with a gentle re-entry guard.
-
-### ⚙️ Modular & Independent Settings
-- 3 separate, self-contained setting cards: **Preferences & Profile**, **Custom Quotes**, and **Local Storage & Portability** — each with independent save controls.
-
----
-
-## 🔒 Privacy & Local-First Architecture
-
-- **100% Private & Local**: All data lives exclusively inside your browser's IndexedDB on your device.
-- **Zero Cloud Trackers**: No analytics, no third-party telemetry, no hidden accounts.
-- **Full Portability**: One-click JSON Export & Restore in Settings to backup or transfer data between laptops.
-
----
-
-## 🛠️ Tech Stack
-
-- **Frontend**: Pure Vanilla HTML5, CSS3 Custom Properties, Modern JavaScript (ES Modules).
-- **Storage**: Browser-native IndexedDB.
-- **Zero Build Step**: No `npm install`, no bundlers, no framework overhead.
-
----
-
-## 💻 Running Locally
-
-Simply serve the directory or open `index.html` in any modern browser:
+Serve the repository with a local web server; opening `index.html` directly with a `file://` URL may prevent browser modules or authentication redirects from working correctly.
 
 ```bash
-# Clone repository
-git clone https://github.com/Utharam/Main-Deck.git
-cd Main-Deck
-
-# Option 1: Direct open
-start index.html
-
-# Option 2: Run local web server
-npx serve .
-# or
 python -m http.server 8000
 ```
 
----
+Then open `http://localhost:8000` in a browser. Team sign-in also requires a valid Supabase configuration and the local URL to be allowed in Supabase Authentication settings.
 
-## 📄 License
+## Technology
 
-Distributed under the **MIT License**. Free to use, adapt, and share.
+- HTML, CSS, and JavaScript ES modules
+- IndexedDB for personal, device-local data
+- Supabase Auth and database for shared team tasks
+- Service worker and web app manifest for PWA support
 
-## Shared Team Tasks
+## Attribution and license
 
-The Team Tasks page adds an online shared task board while keeping the existing personal Main Deck data local to each browser. Team members sign in with individual accounts, create a workspace or join with its invite code, assign tasks to one another, update status, and see task changes live.
-
-### Set up the shared board
-
-1. Create a project in [Supabase](https://supabase.com/).
-2. Open **SQL Editor**, paste and run [`supabase/team_tasks.sql`](supabase/team_tasks.sql).
-3. In **Project Settings > API**, copy the Project URL and publishable key.
-4. Put those values in `js/supabase-config.js` as `SUPABASE_URL` and `SUPABASE_ANON_KEY`.
-5. Fork or copy this repository to your own GitHub account, then enable GitHub Pages for it.
-6. In Supabase Auth URL Configuration, set the deployed page as the Site URL and add it to the allowed redirect URLs.
-7. Open the deployed URL. Local `file://` launch does not support all browser modules reliably.
-8. Create an account, create a team, then give its invite code to your team leader. They create their own account and enter that code on the Team Tasks page.
-
-Keep email confirmation enabled and only share the team invite code with intended colleagues. The browser key is a publishable key; **never** place a Supabase `service_role` key in frontend code. Row Level Security in the SQL file limits task access to authenticated members of each team.
+This repository contains modifications to Main Deck by Utharam. Please retain the original project's copyright and license notices when redistributing the copied work. The upstream README identifies the project as MIT-licensed; verify the current upstream license and include its license text and required notices in this repository. This attribution statement does not replace the license terms.
