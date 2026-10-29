@@ -1,4 +1,4 @@
-# ⚓ Main Deck by Utharam
+# Main Deck — Personal Control Surface
 
 <p align="center">
   <a href="https://utharam.github.io/Main-Deck/">
@@ -124,12 +124,6 @@ npx serve .
 # or
 python -m http.server 8000
 ```
-
----
-
-## 👤 Author & Attribution
-
-Created by [**Utharam**](https://utharam.in)
 
 ---
 

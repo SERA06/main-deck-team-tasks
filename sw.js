@@ -6,12 +6,13 @@
 // Bump on every deploy: the fetch handler is cache-first, so an unbumped
 // CACHE_NAME means the first page load after a release serves the previous
 // version's JS. Keep in sync with the version in package-less manual deploys.
-const CACHE_NAME = 'maindeck-v4.5.0';
+const CACHE_NAME = 'maindeck-v4.6.0';
 
 const APP_SHELL = [
   './',
   './index.html',
   './manifest.json',
+  './assets/icons/main-deck-mark.svg',
   './css/base.css',
   './css/theme.css',
   './css/layout.css',
